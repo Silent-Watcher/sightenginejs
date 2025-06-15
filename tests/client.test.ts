@@ -1,7 +1,5 @@
-import fs from 'node:fs';
 import { Readable } from 'node:stream';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { Mock } from 'vitest';
 import { SightEngineClient } from '../src/client.js';
 
 declare global {
