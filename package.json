@@ -42,7 +42,7 @@
 		"prestart": "npm run build",
 		"start": "node dist/index.js",
 		"test": "vitest run --passWithNoTests",
-		"test:coverate": "vitest run --coverage",
+		"test:coverage": "vitest run --coverage",
 		"test:watch": "vitest dev",
 		"prelint": "biome format --write ./src/*.ts ./tests/*.ts",
 		"lint": "biome lint ./src/*.ts ./tests/*.ts",

@@ -9,8 +9,8 @@ export class SightEngineClient {
 	private secret: string;
 	private models: string[];
 	private agent?: ClientOptions['httpAgent'];
-	private timeout: number;
-	private retries: number;
+	private timeout?: number;
+	private retries?: number;
 
 	constructor(opts: ClientOptions) {
 		if (!opts.apiUser?.trim() || !opts.apiSecret?.trim()) {

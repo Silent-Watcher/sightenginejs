@@ -8,11 +8,11 @@ export default defineConfig({
 		coverage: {
 			provider: 'v8',
 			enabled: true,
-			reporter: ['json-summary'],
+			reporter: ['json-summary', 'json'],
 			all: true,
 
 			include: ['src/**/*.ts'],
-			exclude: ['src/index.ts', 'src/types.ts'],
+			exclude: ['src/index.ts', 'src/types.ts', 'src/thresholds'],
 		},
 	},
 	resolve: {
