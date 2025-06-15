@@ -15,15 +15,10 @@
     <a href="#-features">Features</a> •
     <a href="#-installation">Installation</a> •
     <a href="#-quick-start">Quick Start</a> •
-    <a href="#-examples">Examples</a> •
-    <a href="#-supported-ai-models">Models</a> •
     <a href="#-contributing">Contributing</a>
   </p>
 
   <p>
-    <a href="https://www.npmjs.com/package/@usex/llmpeg">
-      <img src="https://img.shields.io/npm/v/@usex/llmpeg?style=flat-square&color=00DC82&label=npm" alt="npm version">
-    </a>
     <a href="https://github.com/ali-master/llmpeg/blob/master/LICENSE">
       <img src="https://img.shields.io/github/license/Silent-Watcher/sightenginejs?color=#2fb64e"license">
     </a>
