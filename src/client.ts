@@ -28,22 +28,22 @@ export class SightEngineClient {
 	}
 
 	/** Core POST helper, with retry+timeout */
-	private async postForm(form: FormData): Promise<ModerationResponse> {
+	private async postForm(
+		form: FormData,
+		endpoint = 'https://api.sightengine.com/1.0/check.json',
+	): Promise<ModerationResponse> {
 		let attempts = 0;
 		const headers = form.getHeaders();
 		while (true) {
 			try {
-				const res = await fetch(
-					'https://api.sightengine.com/1.0/check.json',
-					{
-						method: 'POST',
-						body: form,
-						headers,
-						agent: this.agent,
-						// @ts-ignore node-fetch typings
-						timeout: this.timeout,
-					} as RequestInit,
-				);
+				const res = await fetch(endpoint, {
+					method: 'POST',
+					body: form,
+					headers,
+					agent: this.agent,
+					// @ts-ignore node-fetch typings
+					timeout: this.timeout,
+				} as RequestInit);
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
 				return (await res.json()) as ModerationResponse;
 			} catch (error) {
@@ -112,5 +112,30 @@ export class SightEngineClient {
 	): Promise<ModerationResponse> {
 		const buffer = Buffer.from(b64, 'base64');
 		return this.moderate(buffer, filename);
+	}
+
+	async feedback(
+		model: string,
+		clazz: string,
+		source: string | Buffer | Readable,
+	): Promise<ModerationResponse> {
+		const form = new FormData();
+		form.append('model', model);
+		form.append('class', clazz);
+		form.append('api_user', this.user);
+		form.append('api_secret', this.secret);
+
+		if (typeof source === 'string') {
+			form.append('source', source);
+		} else if (Buffer.isBuffer(source)) {
+			form.append('source', source, { filename: 'file' });
+		} else {
+			form.append('source', source, { filename: 'file' });
+		}
+
+		return this.postForm(
+			form,
+			'https://api.sightengine.com/1.0/feedback.json',
+		);
 	}
 }
