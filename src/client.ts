@@ -47,7 +47,7 @@ export class SightEngineClient {
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
 				return (await res.json()) as ModerationResponse;
 			} catch (error) {
-				if (++attempts > this.retries) throw error;
+				if (++attempts > (this.retries ?? 2)) throw error;
 			}
 		}
 	}
