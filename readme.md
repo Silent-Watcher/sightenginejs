@@ -47,9 +47,9 @@
 ## 📦 Installation
 
 ```bash
-npm install sightengine-sdk
+npm install sightenginejs
 # or
-yarn add sightengine-sdk
+yarn add sightenginejs
 ```
 
 ## 🚀 Quick Start
