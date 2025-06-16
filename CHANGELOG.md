@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Silent-Watcher/sightenginejs/compare/v1.0.0...v1.0.1) (2025-06-16)
+
+
+### Bug Fixes
+
+* update install command text inside readme file ([37073bf](https://github.com/Silent-Watcher/sightenginejs/commit/37073bff8ea3badfd4fa1fc9ae69753d9df7a5db))
+
 # 1.0.0 (2025-06-15)
 
 
