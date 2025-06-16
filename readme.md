@@ -55,7 +55,7 @@ yarn add sightenginejs
 ## 🚀 Quick Start
 
 ```ts
-import { SightEngineClient, PRESET_THRESHOLDS, isNSFW } from 'sightengine-sdk';
+import { SightEngineClient, PRESET_THRESHOLDS, isNSFW } from 'sightenginejs';
 
 const client = new SightEngineClient({
   apiUser:   'YOUR_USER',
@@ -126,7 +126,7 @@ Throws if `apiUser` or `apiSecret` are missing or empty.
 ## 🎛️ Thresholds & Helpers
 
 ```ts
-import { DEFAULT_THRESHOLDS, PRESET_THRESHOLDS, isNSFW, listFlaggedCategories } from 'sightengine-sdk';
+import { DEFAULT_THRESHOLDS, PRESET_THRESHOLDS, isNSFW, listFlaggedCategories } from 'sightenginejs';
 
 const resp = await client.moderate(buffer);
 console.log(listFlaggedCategories(resp, PRESET_THRESHOLDS.moderate));
