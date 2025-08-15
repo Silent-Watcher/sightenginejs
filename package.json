@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "tsc": "tsc",
+        "dev": "tsx --watch src/*.ts",
+        "prebuild": "npm run tsc",
+		"build": "tsup",
+		"prestart": "npm run build",
+		"start": "node dist/index.js"
+    },
+    "devDependencies": {
+        "@types/node": "^24.3.0",
+        "tsup": "^8.5.0",
+        "tsx": "^4.20.4",
+        "typescript": "^5.9.2"
+    }
+}
