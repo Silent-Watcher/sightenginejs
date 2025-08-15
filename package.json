@@ -3,14 +3,28 @@
         "tsc": "tsc",
         "dev": "tsx --watch src/*.ts",
         "prebuild": "npm run tsc",
-		"build": "tsup",
-		"prestart": "npm run build",
-		"start": "node dist/index.js"
+        "build": "tsup",
+        "prestart": "npm run build",
+        "start": "node dist/index.js",
+        "prepare": "husky",
+		"commit": "cz",
+		"clean": "del-cli dist/ coverage/ *.log"
     },
     "devDependencies": {
         "@types/node": "^24.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "del-cli": "^6.0.0",
+        "husky": "^9.1.7",
         "tsup": "^8.5.0",
         "tsx": "^4.20.4",
         "typescript": "^5.9.2"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "dependencies": {
+        "node-fetch": "^3.3.2"
     }
 }
