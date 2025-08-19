@@ -5,7 +5,7 @@
 		"dist"
 	],
 	"description": "A fully-typed TypeScript SDK for the SightEngine content‑moderation API, with streaming support, threshold presets, and helper utilities.",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
 	"keywords": [

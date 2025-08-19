@@ -78,6 +78,58 @@ console.log(isNSFW(imageModerationResult));
 
 ```
 
+## 📚 API Reference
+
+### `new SightEngineClient(options)`
+
+| Property | Type   | Description                               |
+|----------|--------|-------------------------------------------|
+| `apiUser`| `string`| Your SightEngine API user.                |
+| `apiSecret`| `string`| Your SightEngine API secret.            |
+
+### `client.moderateImage(path, models?)`
+
+- **`path`** – Local file system path to the image.
+- **`models`** – Array of model identifiers (default: `["nudity-2.1"]`).
+
+Returns a promise that resolves to `ImageModerationResponse`.
+
+### `client.moderateImageByUrl(url, models?)`
+
+- **`url`** – Direct URL to the image.
+- **`models`** – Same as above.
+
+Returns a promise that resolves to `ImageModerationResponse`.
+
+### Types
+
+- **`ImageModerationResponse`** – Raw response from SightEngine (see `src/types.ts`).
+- **`NormalizedImageModerationResponse`** – Internal normalized shape used by helpers.
+
+
+## ⚙️ Thresholds & Presets
+
+```ts
+import { DEFAULT_THRESHOLDS, PRESET_THRESHOLDS } from "sightengine-js";
+
+// Example: use the strict preset
+const thresholds = PRESET_THRESHOLDS.strict;
+```
+
+| Model      | Default |
+|------------|---------|
+| `nudity`   | 0.85    |
+| `offensive`| 0.5     |
+| `gore`     | 0.5     |
+| `violence` | 0.5     |
+| `self-harm`| 0.5     |
+
+## 🛠️ Helper Utilities
+
+- **`isNSFW(response, threshold?)`** – Returns `true` if any of the important categories (`nudity`, `gore`, `violence`, `self-harm`, `sexual`) exceed the given threshold.
+- **`listFlaggedCategories(response, thresholds?)`** – Returns an array of categories (and sub‑scores) that exceed the supplied thresholds.
+
+Both functions accept the raw `ImageModerationResponse` from the client.
 
 ## 🤝 Contributing
 
