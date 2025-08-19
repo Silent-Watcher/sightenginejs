@@ -3,3 +3,4 @@ coverage
 dist
 .vscode
 sample.json
+src/test.ts
