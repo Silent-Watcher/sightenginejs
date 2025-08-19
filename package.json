@@ -1,5 +1,6 @@
 {
 	"type": "module",
+	"name": "sightengine-js",
 	"files": [
 		"dist"
 	],
@@ -32,13 +33,16 @@
 		"commit": "cz",
 		"clean": "del-cli dist/ coverage/ *.log",
 		"lint": "biome lint ./src/*.ts",
-		"check": "biome check --write ./src/*.ts"
+		"check": "biome check --write ./src/*.ts",
+		"prepublishOnly": "npm run clean && npm run build"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.2.0",
 		"@types/node": "^24.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"del-cli": "^6.0.0",
 		"husky": "^9.1.7",
+		"lint-staged": "^16.1.5",
 		"tsup": "^8.5.0",
 		"tsx": "^4.20.4",
 		"typescript": "^5.9.2"

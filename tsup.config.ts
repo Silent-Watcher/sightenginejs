@@ -8,5 +8,6 @@ export default defineConfig({
 	shims: true,
 	clean: true,
 	minify: true,
+	external: ['fs/promises', 'path', 'form-data', 'node-fetch'],
 	outExtension: () => ({ js: '.js' }), // Force .js instead of .mjs
 });
