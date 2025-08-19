@@ -44,6 +44,41 @@ yarn add sightengine-js
 ```
 
 
+## 🚀 Quick Start
+
+```ts
+import { SightEngineClient, isNSFW, listFlaggedCategories } from "sightengine-js";
+
+const sightengine = new SightEngineClient({
+	apiSecret: "<your api secret>",
+	apiUser: "<your api user>",
+});
+
+const imageModerationResult = await sightengine.moderateImage(
+	"<path to your image>",
+	[
+		"nudity-2.1",
+		"gore-2.0",
+		"offensive-2.0",
+	],
+);
+
+// URL-based
+const urlImageModerationResult = await sightengine.moderateImageByUrl(
+	"<image URL>",
+	[
+		"nudity-2.1",
+		"gore-2.0",
+		"offensive-2.0",
+	],
+);
+
+console.log(listFlaggedCategories(imageModerationResult));
+console.log(isNSFW(imageModerationResult));
+
+```
+
+
 ## 🤝 Contributing
 
 1. Fork the repo
