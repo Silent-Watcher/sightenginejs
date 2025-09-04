@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <img src="assets/sightengine.png" alt="Sightenginejs" width="240" height="240">
+  <img src="assets/sightenginejs.png" alt="Sightenginejs" width="210" height="210">
   <br>
   <br>
 
